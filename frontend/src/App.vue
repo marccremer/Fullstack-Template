@@ -1,12 +1,20 @@
 <script setup>
 // This starter template is using Vue 3 <script setup> SFCs
 // Check out https://vuejs.org/api/sfc-script-setup.html#script-setup
-import HelloWorld from './components/HelloWorld.vue'
+import HelloWorld from "./components/HelloWorld.vue";
+import API from "./components/API.vue";
 </script>
 
 <template>
   <img alt="Vue logo" src="./assets/logo.png" />
   <HelloWorld msg="Hello Vue 3 + Vite" />
+  <Suspense>
+    <!-- component with nested async dependencies -->
+    <API></API>
+
+    <!-- loading state via #fallback slot -->
+    <template #fallback> Loading... </template>
+  </Suspense>
 </template>
 
 <style>
